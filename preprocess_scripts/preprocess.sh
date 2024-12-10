@@ -34,7 +34,7 @@ echo 'finish 6.extract_simuleval_data.sh'
 bash $PREPROCESS_ROOT/7.prep_cvss_c_multitask_asr_data.sh $lang
 echo 'finish 7.prep_cvss_c_multitask_asr_data.sh'
 
-# Outputs unit (speech) and source (text) data files for training.
+# Outputs unit (speech) and source (text) data files for training. 111
 bash $PREPROCESS_ROOT/8.prep_cvss_c_simuleval_unit.sh $lang
 bash $PREPROCESS_ROOT/8.prep_cvss_c_simuleval_src.sh $lang
 echo 'finish 8.prep_cvss_c_simuleval_unit.sh, 8.prep_cvss_c_simuleval_src.sh '
