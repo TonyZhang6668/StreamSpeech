@@ -6,11 +6,11 @@ PREPROCESS_ROOT=$ROOT/preprocess_scripts # Specify the path.
 # 1. Extracts features from the 11th layer of a HuBERT-based model. 
 # 2. Applies K-means clustering to those features. 
 # 3. Converts feature vectors into discrete K-means cluster indices. 
-# 4. Produces quantized features for train, dev, and test sets for the Spanish-English CVSS-C dataset.
+# 4. Produces quantized features for train, dev, and test sets for the Spanish-English CVSS-C dataset. --save in dictionary('audio ID'...)
 bash $PREPROCESS_ROOT/1.learn_KM_clustering_model.sh $lang
 echo 'finish 1.learn_KM_clustering_model.sh'
 
-# 1. Combines CVSS-C and CoVoST2 data, contains cross-lingual paired speech data (CoVoST2 propvides more variety). ---?
+# 1. Combines CVSS-C and CoVoST2 data, contains cross-lingual paired speech data (CoVoST2 propvides more variety). ---take input from human speech to text, mapping to CVSS(robot speech)
 # 2. Converts speech from source wave (Spanish raw audio) to unit-based representations classified in K-means 1000-unit system.
 # 3. Uses a HiFi-GAN vocoder to reconstruct waveforms from the unit sequences (eg. Model can take unit sequences (like 101, 22, 56, 345) and generate raw waveform audio).
 bash $PREPROCESS_ROOT/2.prep_cvss_c_multilingual_data.sh $lang
@@ -42,3 +42,6 @@ echo 'finish 8.prep_cvss_c_simuleval_unit.sh, 8.prep_cvss_c_simuleval_src.sh '
 # # only for s2tt training on CVSS-C
 # bash $PREPROCESS_ROOT/9.prep_cvss_c_s2st_mtl_data.sh  $lang
 # echo 'finish 9.prep_cvss_c_s2st_mtl_data.sh'
+
+
+# input, output paths --> step to step
